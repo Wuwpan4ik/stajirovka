@@ -1,0 +1,429 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+    background-color: #3e94ec;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+div.table-title {
+    display: block;
+    margin: auto;
+    max-width: 600px;
+    padding:5px;
+    width: 100%;
+}
+
+.table-title h3 {
+    color: #fafafa;
+    font-size: 30px;
+    font-weight: 400;
+    font-style:normal;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    text-transform:uppercase;
+}
+.modal-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+/*** Table Styles **/
+.table__container {
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.table-fill {
+    background: white;
+    border-radius:3px;
+    border-collapse: collapse;
+    padding:5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+.table__row {
+    cursor: pointer;
+}
+
+th {
+    color:#D5DDE5;;
+    background:#1b1e24;
+    border-bottom:4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size:23px;
+    font-weight: 100;
+    padding:24px;
+    text-align:left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align:middle;
+}
+
+th:first-child {
+    border-top-left-radius:3px;
+}
+
+th:last-child {
+    border-top-right-radius:3px;
+    border-right:none;
+}
+
+tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom-: 1px solid #C1C3D1;
+    color:#666B85;
+    font-size:16px;
+    font-weight:normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td {
+    background:#4E5066;
+    color:#FFFFFF;
+    border-top: 1px solid #22262e;
+}
+
+tr:first-child {
+    border-top:none;
+}
+
+tr:last-child {
+    border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+    background:#EBEBEB;
+}
+
+tr:nth-child(odd):hover td {
+    background:#4E5066;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius:3px;
+}
+
+td {
+    background:#FFFFFF;
+    padding: 40px 20px;
+    text-align:left;
+    vertical-align:middle;
+    font-weight:300;
+    font-size:18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+    border-right: 0px;
+}
+
+th.text-left {
+    text-align: left;
+}
+
+th.text-center {
+    text-align: center;
+}
+
+th.text-right {
+    text-align: right;
+}
+
+td.text-left {
+    text-align: left;
+}
+
+td.text-center {
+    text-align: center;
+}
+
+td.text-right {
+    text-align: right;
+}
+
+/* Modal */
+
+/* Please ❤ this if you like it! */
+
+@import url("//fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik&display=swap");
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.popup-btn {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border: 15px double #333333;
+    text-decoration: none;
+    color: #333333;
+    background: wheat;
+    font-size: 8vw;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transform: scale(1, 1) skew(-5deg, -5deg);
+    transition: all 400ms ease 0s;
+    box-shadow: 0px 0px 5px 0px white;
+    font-family: "Luckiest Guy", cursive;
+}
+
+.popup-btn:hover {
+    transform: scale(1.2, 1.2) skew(-5deg, -5deg);
+    transition: all 400ms ease 0s;
+}
+
+.modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.modal__plus {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 30px;
+    bottom: 30px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+.modal-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    pointer-events: none;
+}
+.modal-backdrop.fade {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+.fade.in {
+    opacity: 1;
+}
+.modal-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.modal-open {
+    overflow: hidden;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    transition-delay: 0.2s;
+}
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: 0;
+}
+.modal-body p {
+    line-height: 28px;
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-header:before,
+.modal-header:after,
+.modal-footer:before,
+.modal-footer:after {
+    content: " ";
+    display: table;
+}
+.modal-header:after,
+.modal-footer:after {
+    clear: both;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    font-family: inherit;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.modal-header .close {
+    margin-top: -2px;
+    margin-left: 10px;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: inherit;
+    font-size: 18px;
+    font-weight: normal;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+    font-family: "Rubik", sans-serif;
+}
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+.modal .btn {
+    font-family: inherit;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.modal .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.modal .btn-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    text-decoration: none;
+}
+.modal .btn-default:focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c;
+}
+.modal .btn:active,
+.modal .btn.active {
+    outline: 0;
+    background-image: none;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.modal .btn:focus,
+.modal .btn:active:focus,
+.modal .btn.active:focus,
+.modal .btn.focus,
+.modal .btn:active.focus,
+.modal .btn.active.focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.modal .btn-default:active,
+.modal .btn-default.active,
+.modal .open > .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.modal .btn-default:active,
+.modal .btn-default.active,
+.modal .open > .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+}
